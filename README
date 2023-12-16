@@ -1,5 +1,7 @@
 The underlying theory of this trading strategy is built upon an observation of patterns on price data
 The pattern is derived from comparing the respective trading range from Tokyo session, to London session then to New York session
-	If there are three consective higher highs (i.e. New York high was higher than London high, which was also higher than Tokyo high)
+	
+If there are three consective higher highs (i.e. New York high was higher than London high, which was also higher than Tokyo high)
 	(or vice versa for lower lows)
+
 There seems to be some degree of price continuation if such patterns have been observed.
