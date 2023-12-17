@@ -1,7 +1,23 @@
-The underlying theory of this trading strategy is built upon an observation of patterns on price data
+Summary:
+The underlying idea of this trading strategy is built upon an observation of patterns on price data
 The pattern is derived from comparing the respective trading range from Tokyo session, to London session then to New York session
 	
 If there are three consective higher highs (i.e. New York high was higher than London high, which was also higher than Tokyo high)
 (or vice versa for lower lows)
 
-There seems to be some degree of price continuation if such patterns have been observed.
+There seems to be some degree of price continuation/follow through if such patterns have been observed.
+So I have decided to develop a backtesting logic using Reuters intraday data, which is available through the CodeBook function in Reuters.
+The goal is to explore if trading such price continuation could generate consistent profit.
+
+
+The data:
+Intraday data of mid price her hour is extracted using the API from Reuters, which only has maximum of one year worth of intraday hourly data.
+The data is indexed with timestamp, and generated as a dataframe.
+
+
+The challenges:
+- Data indexed in timestamp
+	test
+- etsetest
+	etset
+
