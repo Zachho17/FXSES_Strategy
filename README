@@ -40,10 +40,13 @@ The strategy & programming workflow:
 
 
 The challenges:
-- Data indexed in timestamp
-	test
+- Data indexed in timestamp (great deal of time spent in this)
+	As there is a need to segregate each trading session by hour, I found it necessary to locate using specific timestamps
+	Rather than the relative index location from current iteration
+	Since we are only concerned the three sessions of the previous day, the strategy will not be needed to run in every iteration
+	Timestamp data is then needed to convert and check if current iteration and the previous iteration is within the same day
 - Unconvenient timestamp data across weekend
-	etset
+	Due to the nature of the data, certain workaround have been put in place to cater for weekend/Friday
 - Open-trade evaluation
-	
+	To be continued...
 
