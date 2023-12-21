@@ -20,9 +20,9 @@ It has been concluded that such strategy goes not generate consistent profit in 
 However, one could argue that the backtesting period is just merely 12 months(constraints from data source), which might still be within one specific market regime.
 **Namely, in certain market regime, currencies tend to move in range and lack of follow through in price action.**
 
-More intraday data, ideally across multiple market regimes, could determine if such strategy works better in certain market regimes than the others.
-Or we can declare the strategy to be completely useless.
-However, this would lead to the need to identify market regime in the specific period. This can well be my next project. 
+Before we could declare the strategy to be completely useless though, more intraday data across multiple market regimes could help to determine if such strategy works better in certain market regimes than the others.
+
+However, this would mean we need to identify market regime in the specific period. **_This will be my next project._**
 
 ## Workflow
 ### The data
