@@ -24,4 +24,32 @@ More intraday data, ideally across multiple market regimes, could determine if s
 Or we can declare the strategy to be completely useless.
 However, this would lead to the need to identify market regime in the specific period. This can well be my next project. 
 
-### test
+## Workflow
+### The data
+Intraday data of mid price her hour is extracted using the API from Refinitiv Reuters, which only has maximum of one year worth of intraday hourly data.
+The data is indexed with timestamp, and generated as a dataframe. The data is a time series data.
+
+### Set up trading rules
+- Segregate Tokyo session, London session and New York session
+- Determine the respective highs and lows of three sessions
+- If a trading signal is confirmed (either 3 higher highs or 3 lower lows) and no open trade, open a long/short trade at 8am Asian time
+- Stop Loss (SL) and Take Profit (TP) would be determined accordingly (below)
+
+### Set up trading simulation and evaluation
+- SL set using London's high/low, determined by the direction of the trade (if long, use London low as SL. If short, use London high as SL.)
+- TP set with the risk reward ratio of 1:1, i.e. if SL is 50 pips below the long entry, the TP is 50 pips above the long entry
+- Open trade will be evaluated against both SL and TP level every hour, to determine whether to close the trade
+- Once the trade is closed, the respective Profit and Loss will be saved in a list
+- Performance matrix would be evaluated on the list, and a final performance summary would be generated into a dataframe
+
+***If no position and no trade signal, the program would go to the next iteration**
+
+## Challenges
+### Data indexed in timestamp (great deal of time spent in this)
+As there is a need to segregate each trading session by hour, I found it necessary to locate using specific timestamps
+Rather than the relative index location from current iteration
+Since we are only concerned the three sessions of the previous day, the strategy will not be needed to run in every iteration
+Timestamp data is then needed to convert and check if current iteration and the previous iteration is within the same day
+### Unconvenient timestamp data across weekend
+Due to the nature of the data, certain workaround have been put in place to cater for weekend/Friday
+### Open-trade evaluation
