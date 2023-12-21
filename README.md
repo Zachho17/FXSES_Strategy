@@ -45,11 +45,18 @@ The data is indexed with timestamp, and generated as a dataframe. The data is a 
 ***If no position and no trade signal, the program would go to the next iteration**
 
 ## Challenges
-### Data indexed in timestamp (great deal of time spent in this)
-As there is a need to segregate each trading session by hour, I found it necessary to locate using specific timestamps
-Rather than the relative index location from current iteration
-Since we are only concerned the three sessions of the previous day, the strategy will not be needed to run in every iteration
-Timestamp data is then needed to convert and check if current iteration and the previous iteration is within the same day
+### Data indexed in timestamp (great deal of time spent on this)
+As there is a need to segregate each trading session by hour, I found it necessary to locate using specific timestamps rather than the relative index location from current iteration. Relative index location might still be applicable, though it might lack the specificity in achieving a consistent result.
+
+Since we are only concerned the three sessions of the previous day, the strategy will not be needed to run in every iteration. Therefore additional logic has been put inplace, that convert and check the timestamp if current iteration and the previous iteration timestamp is within the same day
+
 ### Unconvenient timestamp data across weekend
 Due to the nature of the data, certain workaround have been put in place to cater for weekend/Friday
+
 ### Open-trade evaluation
+A multiple nested ifs have been put inplace to evaluate any open trades. 
+
+As there are three possible states (no position, long positon and short position), an evaluation logic was needed for each. 
+This undoubtedly lengthened the entire set of code.
+
+Some degree of optimisation might be possible, but I have yet to explore at this junction. 
